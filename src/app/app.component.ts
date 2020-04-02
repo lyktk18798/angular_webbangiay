@@ -21,4 +21,8 @@ export class AppComponent implements OnInit{
   search () {
     this.router.navigate(['/product-list', 0, this.name, 0, 0]);
   }
+
+  openCart(){
+    this.router.navigate(['/cart']);
+  }
 }

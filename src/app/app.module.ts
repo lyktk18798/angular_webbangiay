@@ -12,6 +12,7 @@ import {TabsComponent} from './components/tabs/tabs.component';
 import {HomeComponent} from './components/home/home.component';
 import { FilterComponent } from './components/filter/filter.component';
 import {FormsModule} from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {FormsModule} from '@angular/forms';
     TabsComponent,
     HomeComponent,
     FilterComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
