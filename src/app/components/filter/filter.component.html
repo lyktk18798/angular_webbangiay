@@ -1,0 +1,63 @@
+<div class="products">
+  <div class="product-filter">
+    <h1><a href="#">FILTER</a></h1>
+    <div class="product-filter-grids">
+      <div class="col-md-3 product-filter-grid1-brands">
+        <h3>BRANDS</h3>
+        <ul class="col-md-6 unstyled-list b-list1">
+          <li *ngFor="let item of lstBrands | slice: 0: 10">
+            <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', 0, item.id]">{{item.name}}</a>
+          </li>
+          <div class="clearfix"> </div>
+        </ul>
+        <ul class="col-md-6 unstyled-list b-list2">
+          <li *ngFor="let item of lstBrands | slice: 10 : 14 ">
+            <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', 0, item.id]">{{item.name}}</a>
+          </li>
+          <div class="clearfix"> </div>
+        </ul>
+        <div class="clearfix"> </div>
+      </div>
+      <!---->
+      <div class="col-md-6 product-filter-grid1-brands-col2">
+        <div class="producst-cate-grids">
+          <div class="col-md-4 producst-cate-grid text-center">
+            <h2>WOMAN</h2>
+            <img class="r-img text-center img-responsive" src="assets/images/img-w.jpg" title="name">
+            <span><img src="assets/images/objs1.png" title="name"></span>
+            <h4>TOTAL</h4>
+            <label>{{lstProductWoman.length}} PRODUCTS</label>
+            <a class="r-list-w" [routerLink]="['/product-list/', 1, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
+          </div>
+          <div class="col-md-4 producst-cate-grid text-center">
+            <h2>MAN</h2>
+            <img class="r-img text-center img-responsive" src="assets/images/man-r-img.jpg" title="name">
+            <span><img src="assets/images/objs2.png" title="name"></span>
+            <h4>TOTAL</h4>
+            <label>{{lstProductMan.length}} PRODUCTS</label>
+            <a class="r-list-w" [routerLink]="['/product-list/', 2, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
+          </div>
+          <div class="col-md-4 producst-cate-grid text-center">
+            <h2>KIDS</h2>
+            <img class="r-img text-center img-responsive" src="assets/images/kid-r-img.jpg" title="name">
+            <span><img src="assets/images/objs3.png" title="name"></span>
+            <h4>TOTAL</h4>
+            <label>{{lstProductKids.length}} PRODUCTS</label>
+            <a class="r-list-w" [routerLink]="['/product-list/', 3, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div class="product-filter-grid1-brands-col3">
+        <div class="products-colors">
+          <h3>SELECT COLOR </h3>
+          <li *ngFor="let item of lstColors">
+            <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', item.id, 0]"><span [style.backgroundColor]="item.name"></span></a>
+          </li>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>

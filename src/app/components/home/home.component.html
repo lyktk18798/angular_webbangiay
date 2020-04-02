@@ -1,0 +1,56 @@
+<!----content---->
+  <div class="container">
+    <app-filter></app-filter>
+    <div class="clearfix"> </div>
+    <!-- //products ---->
+    <!----speical-products---->
+    <div class="special-products all-poroducts">
+      <div class="s-products-head">
+        <div class="s-products-head-left">
+          <h3>SELLING <span>PRODUCTS</span></h3>
+        </div>
+        <div class="s-products-head-right">
+          <a [routerLink]="['/product-list/', 0, '']"><span> </span>view all products</a>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <!----special-products-grids---->
+      <div class="special-products-grids">
+        <div class="col-md-3 special-products-grid text-center" *ngFor="let item of lstProductsSpecials">
+          <a class="brand-name"  [routerLink]="['/product/',item.id]"><img src="assets/images/branch/b{{item.category.id}}.jpg"  title="name" /></a>
+          <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}" title="product-name" /></a>
+          <h4><a [routerLink]="['/product/',item.id]">{{item.name}}</a></h4>
+          <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span><small>GET NOW</small><label> </label></a>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <!---//special-products-grids---->
+    </div>
+    <!----->
+    <div class="special-products all-poroducts latest-products">
+      <div class="s-products-head">
+        <div class="s-products-head-left">
+          <h3>LATEST <span>PRODUCTS</span></h3>
+        </div>
+        <div class="s-products-head-right">
+          <a [routerLink]="['/product-list/', 0, '']"><span> </span>view all products</a>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <!----special-products-grids---->
+      <div class="special-products-grids">
+        <div class="col-md-3 special-products-grid text-center" *ngFor="let item of lstProductsSpecials">
+          <a class="brand-name"  [routerLink]="['/product/',item.id]"><img src="assets/images/branch/b{{item.category.id}}.jpg"  title="name" /></a>
+          <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}" title="product-name" /></a>
+          <h4><a [routerLink]="['/product/',item.id]">{{item.name}}</a></h4>
+          <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span><small>GET NOW</small><label> </label></a>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <!---//special-products-grids---->
+    </div>
+    <!---//speical-products---->
+  </div>
+  <!----content---->
+<!----container---->
+

@@ -1,20 +1,102 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!----container---->
+<div class="container">
+  <!----top-header---->
+  <div class="top-header">
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo.png" title="barndlogo" /></a>
+    </div>
+    <div class="top-header-info">
+      <div class="top-contact-info">
+        <ul class="unstyled-list list-inline">
+          <li><span class="phone"> </span>090 - 223 44 66</li>
+          <li><span class="mail"> </span><a href="#">lyktk18798@gmail.com</a></li>
+          <div class="clearfix"> </div>
+        </ul>
+      </div>
+      <div class="cart-details">
+        <div class="add-to-cart">
+          <ul class="unstyled-list list-inline">
+            <li><span class="cart"> </span>
+              <ul class="cart-sub">
+                <li><p>fdsfds</p></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="login-rigister">
+          <ul class="unstyled-list list-inline">
+            <li><a class="login" href="#">Login</a></li>
+            <li><a class="rigister" href="#">REGISTER <span> </span></a></li>
+            <div class="clearfix"> </div>
+          </ul>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <!----//top-header---->
+  <!---top-header-nav---->
+  <div class="top-header-nav">
+    <!----start-top-nav---->
+    <nav class="top-nav main-menu">
+      <ul class="top-nav">
+        <li><a href="products.html">PRODUCTS </a><span> </span></li>
+        <li><a href="products.html">CAMPAINGS</a><span> </span></li>
+        <li><a href="products.html">SERVICES</a><span> </span></li>
+        <li><a href="products.html">BRANDS</a><span> </span></li>
+        <li><a href="products.html">ABOUT US</a></li>
+        <div class="clearfix"> </div>
+      </ul>
+      <a href="#" id="pull"><img src="assets/imag/nav-icon.png" title="menu" /></a>
+    </nav>
+    <!----End-top-nav---->
+    <!---top-header-search-box--->
+    <div class="top-header-search-box">
+        <input type="text" placeholder="Search" [(ngModel)] = "name">
+        <input type="submit" style="width: 20px" (click)="search()" value="" >
+    </div>
+    <!---top-header-search-box--->
+    <div class="clearfix"> </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<!--//top-header-nav---->
+<div class="content">
+  <router-outlet></router-outlet>
+<!----footer--->
+<div class="footer">
+  <div class="container">
+    <div class="col-md-3 footer-logo">
+      <a href="index.html"><img src="iimages/flogo.png" title="brand-logo" /></a>
+    </div>
+    <div class="col-md-7 footer-links">
+      <ul class="unstyled-list list-inline">
+        <li><a href="#"> Faq</a> <span> </span></li>
+        <li><a href="#"> Terms and Conditions</a> <span> </span></li>
+        <li><a href="#"> Secure Payments</a> <span> </span></li>
+        <li><a href="#"> Shipping</a> <span> </span></li>
+        <li><a href="contact.html"> Contact</a> </li>
+        <div class="clearfix"> </div>
+      </ul>
+    </div>
+    <div class="col-md-2 footer-social">
+      <ul class="unstyled-list list-inline">
+        <li><a class="pin" href="#"><span> </span></a></li>
+        <li><a class="twitter" href="#"><span> </span></a></li>
+        <li><a class="facebook" href="#"><span> </span></a></li>
+        <div class="clearfix"> </div>
+      </ul>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+<div class="clearfix"> </div>
+<!---//footer--->
+<!---copy-right--->
+<div class="copy-right">
+  <div class="container">
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+  </div>
+</div>
+<!--//copy-right--->
+</div>
