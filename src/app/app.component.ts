@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {ShoppingCartService} from './service/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(private router: Router) {}
+export class AppComponent implements OnInit{
+  constructor(private router: Router,
+              private shoppingCartService: ShoppingCartService) {}
   title = 'webbangiay';
   name: string;
+  totalProducts: number = 0;
+
+  ngOnInit(): void {
+    this.totalProducts = this.shoppingCartService.getCarts().length;
+  }
+
   search () {
-    this.router.navigate(['/product-list', 0, this.name, 0, 0);
+    this.router.navigate(['/product-list', 0, this.name, 0, 0]);
   }
 }

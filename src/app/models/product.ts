@@ -9,9 +9,10 @@ export class Product {
   size: number;
   quantity: number;
   dateImport: string;
-  desciption: string;
+  description: string;
   color: string;
   image: string;
+  discount: number;
   category: Category;
   producer: Producer;
 }
