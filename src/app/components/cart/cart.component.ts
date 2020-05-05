@@ -6,7 +6,6 @@ import {ShoppingCartService} from '../../service/shopping-cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-
 export class CartComponent implements OnInit {
   page = 1;
   pageSize = 3;

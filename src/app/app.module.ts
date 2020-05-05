@@ -15,7 +15,8 @@ import {FormsModule} from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import {MyCurrencyFormatterDirective} from './helpers/my-currency-formatter.directive';
 import {MyCurrencyPipe} from './helpers/my-currency.pipe';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CarouselComponent} from './components/carousel/carousel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,8 @@ import {MyCurrencyPipe} from './helpers/my-currency.pipe';
     FilterComponent,
     CartComponent,
     MyCurrencyFormatterDirective,
+    CarouselComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,9 +38,11 @@ import {MyCurrencyPipe} from './helpers/my-currency.pipe';
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    NgbModule,
   ],
-  providers: [MyCurrencyFormatterDirective, MyCurrencyPipe],
+  providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent],
   bootstrap: [AppComponent],
-  exports: [ MyCurrencyFormatterDirective,  ],
+  exports: [ MyCurrencyFormatterDirective, CarouselComponent ],
+
 })
 export class AppModule { }

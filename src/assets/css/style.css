@@ -26,7 +26,7 @@ body a{
 }
 .logo{
 	float: left;
-	margin-top: 4.1em;
+	/*margin-top: 4.1em;*/
 }
 .top-header-info{
 	float:right;
@@ -383,7 +383,7 @@ nav a#pull {
 	z-index: 999;
 }
 .top-header-search-box input[type="text"]{
-	color: #D6D6D6;
+	color: #000000;
 	border:1px solid #D6D6D6;
 	border-radius: 1em;
 	outline: none;
