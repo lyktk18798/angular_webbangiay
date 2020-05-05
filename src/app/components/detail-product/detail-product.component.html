@@ -4,12 +4,12 @@
   <div class="container">
     <div class="product-details-row1">
       <div class="product-details-row1-head">
-        <h2>{{product.name}}</h2>
+        <h2>{{product?.name}}</h2>
       </div>
       <div class="col-md-4 product-details-row1-col1">
         <div class="details-left">
           <div class="details-left-slider">
-            <img width="100%" src="assets/images/products/{{product.image}}"  title="name" />
+            <img width="100%" src="assets/images/products/{{product?.image}}"  title="name" />
           </div>
         </div>
       </div>
@@ -20,29 +20,29 @@
         </div>
         <div class="product-price">
           <div class="product-price-left text-right">
-            <span>{{product.price}}</span>
-            <h5>{{product.price*(1-product.discount)}}$</h5>
+            <span>{{product?.price | number}}</span>
+            <h5>{{product?.price*(1-product?.discount) | number}}$</h5>
           </div>
           <div class="product-price-right">
             <a href="#"><span> </span></a>
-            <label> save <b>{{product.discount*100}}%</b></label>
+            <label> save <b>{{product?.discount*100}}%</b></label>
           </div>
           <div class="clearfix"> </div>
         </div>
         <div class="product-price-details">
-          <p class="text-right">This is a new products made by {{product.category.name}}. View below to details about products</p>
+          <p class="text-right">This is a new products made by {{product?.category.name}}. View below to details about products</p>
           <a class="shipping" href="#"><span> </span>Free shipping</a>
           <div class="clearfix"> </div>
           <div class="product-size-qty">
             <div class="pro-size">
-              <span>Size:</span>
+              <span>Size</span>
               <select [(ngModel)]="size">
                 <option *ngFor="let item of lstSizes">{{item}}</option>
               </select>
             </div>
             <div class="pro-qty">
-              <span>Qty:</span>
-              <input style="width: 50%" type="number" [(ngModel)]="quantity">
+              <span>Quantity</span>
+              <input type="number" [(ngModel)]="quantity">
             </div>
             <div class="clearfix"> </div>
           </div>
@@ -74,18 +74,18 @@
         <app-my-tab [tabTitle]="'Product overview'">
           <div id="tab-1" class="product-complete-info">
             <h3>DESCRIPTION:</h3>
-            <p>{{product.desciption}}</p>
+            <p>{{product?.desciption}}</p>
           </div>
         </app-my-tab>
         <app-my-tab [tabTitle]="'Features'">
           <div id="tab-2" class="product-complete-info">
             <span>DETAILS:</span>
             <div class="product-fea">
-              <p>Code: {{product.code}}</p>
-              <p>Color: {{product.color.name}}</p>
-              <p>Size avalaible: {{product.size}}</p>
-              <p>Producer: {{product.producer.name}} - {{product.producer.address}}</p>
-              <p>Quantity availabel: {{product.quantity}}</p>
+              <p>Code: {{product?.code}}</p>
+              <p>Color: {{product?.color?.name}}</p>
+              <p>Size avalaible: {{product?.size}}</p>
+              <p>Producer: {{product?.producer?.name}} - {{product?.producer?.address}}</p>
+              <p>Quantity availabel: {{product?.quantity}}</p>
             </div>
           </div>
         </app-my-tab>

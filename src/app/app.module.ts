@@ -13,6 +13,8 @@ import {HomeComponent} from './components/home/home.component';
 import { FilterComponent } from './components/filter/filter.component';
 import {FormsModule} from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import {MyCurrencyFormatterDirective} from './helpers/my-currency-formatter.directive';
+import {MyCurrencyPipe} from './helpers/my-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     FilterComponent,
     CartComponent,
+    MyCurrencyFormatterDirective,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { CartComponent } from './components/cart/cart.component';
     RouterModule,
     FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [MyCurrencyFormatterDirective, MyCurrencyPipe],
+  bootstrap: [AppComponent],
+  exports: [ MyCurrencyFormatterDirective,  ],
 })
 export class AppModule { }

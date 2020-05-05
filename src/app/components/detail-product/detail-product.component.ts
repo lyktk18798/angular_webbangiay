@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {lstSizes} from '../constants/Constants';
 import {ShoppingCartService} from '../../service/shopping-cart.service';
 import {Product} from '../../models/product';
@@ -15,12 +15,14 @@ export class DetailProductComponent implements OnInit {
               private productService: ProductService,
               private route: ActivatedRoute,
               private router: Router) { }
+
   lstSizes = lstSizes;
   product : Product;
   productId: string;
   returnUrl: string = this.route.snapshot.queryParams['returnUrl'] || '/';
   quantity: number = 0;
   size: number;
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.productId = params.get('id');
@@ -42,8 +44,8 @@ export class DetailProductComponent implements OnInit {
     let prod = this.product;
     prod.quantity = this.quantity;
     prod.size = this.size;
-    console.log(prod);
     this.shoppingCartService.addToCart(prod);
+    this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length)
   }
 
 }

@@ -26,7 +26,7 @@
             <img class="r-img text-center img-responsive" src="assets/images/img-w.jpg" title="name">
             <span><img src="assets/images/objs1.png" title="name"></span>
             <h4>TOTAL</h4>
-            <label>{{lstProductWoman.length}} PRODUCTS</label>
+            <label>{{lstProductWoman.length | number}} PRODUCTS</label>
             <a class="r-list-w" [routerLink]="['/product-list/', 1, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
           </div>
           <div class="col-md-4 producst-cate-grid text-center">
@@ -34,7 +34,7 @@
             <img class="r-img text-center img-responsive" src="assets/images/man-r-img.jpg" title="name">
             <span><img src="assets/images/objs2.png" title="name"></span>
             <h4>TOTAL</h4>
-            <label>{{lstProductMan.length}} PRODUCTS</label>
+            <label>{{lstProductMan.length | number}} PRODUCTS</label>
             <a class="r-list-w" [routerLink]="['/product-list/', 2, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
           </div>
           <div class="col-md-4 producst-cate-grid text-center">
@@ -42,7 +42,7 @@
             <img class="r-img text-center img-responsive" src="assets/images/kid-r-img.jpg" title="name">
             <span><img src="assets/images/objs3.png" title="name"></span>
             <h4>TOTAL</h4>
-            <label>{{lstProductKids.length}} PRODUCTS</label>
+            <label>{{lstProductKids.length | number}} PRODUCTS</label>
             <a class="r-list-w" [routerLink]="['/product-list/', 3, '', 0, 0]"><img src="assets/images/list-icon.png" title="list"></a>
           </div>
         </div>

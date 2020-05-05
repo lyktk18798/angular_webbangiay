@@ -6,17 +6,21 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  // Observable string sources
+  private emitChangeSource = new Subject<any>();
+  // Observable string streams
+  changeEmitted$ = this.emitChangeSource.asObservable();
+  // Service message commands
+  emitChange(change: any) {
+    this.emitChangeSource.next(change);
+  }
   constructor() {
   }
-  private serviceCart: Subject<any> = new Subject<any>();
-  public serviceCartObs = this.serviceCart.asObservable();
-
   getCarts(): Product[] {
     return JSON.parse(
       localStorage.getItem(CART),
     ) || [];
   }
-
   setCarts(products: Product[]): void {
     localStorage.setItem(CART, JSON.stringify(products));
   }
@@ -30,6 +34,7 @@ export class ShoppingCartService {
   }
 
   removeToCart (id: number){
+    console.log(id);
     const lstProduct: Product[] = this.getCarts();
     this.setCarts(lstProduct.filter(item => item.id !== id));
   }
