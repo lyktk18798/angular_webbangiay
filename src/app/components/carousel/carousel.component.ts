@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import {ProductService} from '../../service/product.service';
+import {Product} from '../../models/product';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -8,9 +10,9 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class CarouselComponent implements OnInit {
+  @Input() lstSellingProduct: Product[];
   constructor() { }
-  images = 'assets/images/products/408b9012d99721c97886.jpg';
+
   ngOnInit() {
   }
-
 }

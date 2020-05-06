@@ -10,14 +10,14 @@ export class HomeComponent implements OnInit {
   lstProductWoman: Product[] = [];
   lstProductMan: Product[] = [];
   lstProductKids: Product[] = [];
-  lstProductsSpecials: Product[] = [];
-
+  lstSellingProduct: Product[] = [];
   constructor(private apiService: ProductService) {}
 
   ngOnInit() {
     this.getProductWoman();
     this.getProductMan();
     this.getProductKids();
+    this.getSellingProducts();
   }
 
   getProductWoman () {
@@ -33,6 +33,11 @@ export class HomeComponent implements OnInit {
   getProductKids () {
     this.apiService.getProductByGroup(3)
     .subscribe(rs => this.lstProductKids = rs);
+  }
+
+  getSellingProducts () {
+    this.apiService.getSellingProduct()
+    .subscribe(rs => this.lstSellingProduct = rs);
   }
 
 }

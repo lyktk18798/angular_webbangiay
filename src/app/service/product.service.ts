@@ -16,6 +16,10 @@ export class ProductService {
     return this.http.get<Product>(`${baseUrl}product/v1/getProductById/${productId}`);
   }
 
+  getSellingProduct (): Observable<Product[]> {
+    return this.http.get<Product[]>(`${baseUrl}product/v1/getSellingProduct`);
+  }
+
   search (name: string, groupId: string, color: string, category: string): Observable<Product[]> {
     const params = new HttpParams()
     .set('name', name)
