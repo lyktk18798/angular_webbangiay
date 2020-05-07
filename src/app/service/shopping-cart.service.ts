@@ -27,6 +27,12 @@ export class ShoppingCartService {
 
   addToCart(product: Product){
     const lstProduct: Product[] = this.getCarts();
+    const index = lstProduct.findIndex(item => item.id === product.id);
+    if(index > -1){
+      lstProduct[index].quantity += product.quantity;
+      this.setCarts(lstProduct);
+      return;
+    }
     this.setCarts([
       ...lstProduct,
       product
@@ -34,7 +40,6 @@ export class ShoppingCartService {
   }
 
   removeToCart (id: number){
-    console.log(id);
     const lstProduct: Product[] = this.getCarts();
     this.setCarts(lstProduct.filter(item => item.id !== id));
   }

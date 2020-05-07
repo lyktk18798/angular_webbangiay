@@ -3,6 +3,7 @@ import {HttpClient, HttpEvent, HttpParams, HttpRequest} from '@angular/common/ht
 import {Observable} from 'rxjs';
 import {Product} from '../models/product';
 import {baseUrl} from '../components/constants/Constants';
+import {HttpHeaders} from '../../../node_modules/@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })

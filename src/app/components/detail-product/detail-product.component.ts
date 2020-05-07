@@ -20,8 +20,8 @@ export class DetailProductComponent implements OnInit {
   product : Product;
   productId: string;
   returnUrl: string = this.route.snapshot.queryParams['returnUrl'] || '/';
-  quantity: number = 0;
-  size: number;
+  quantity: number = 1;
+  size: number = 37;
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

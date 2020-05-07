@@ -10,6 +10,7 @@ import {Product} from '../../models/product';
 })
 
 export class CarouselComponent implements OnInit {
+
   @Input() lstSellingProduct: Product[];
   constructor() { }
 

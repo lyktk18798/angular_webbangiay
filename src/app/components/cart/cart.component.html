@@ -20,6 +20,7 @@
                                                           src="assets/images/products/{{item.image}}"></td>
               <td>{{item.name}}</td>
               <td>{{item.price | number}}</td>
+              <td>{{item.size}}</td>
               <td>
                 <label>
                   <input class="input-quantity" type="text" [(ngModel)]="item.quantity" myCurrencyFormatter/>
@@ -44,5 +45,14 @@
       </div>
     </div>
     <!--/.col-->
+  </div>
+
+  <div class="row">
+    <div class="login-rigister">
+      <ul class="unstyled-list list-inline">
+        <li class="btn-buy"><a class="rigister" (click)="buyProducts()">BUY NOW <span> </span></a></li>
+        <div class="clearfix"></div>
+      </ul>
+    </div>
   </div>
 </div>

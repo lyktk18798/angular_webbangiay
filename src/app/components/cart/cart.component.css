@@ -7,3 +7,8 @@
   text-align: right;
   width: 60%;
 }
+
+.btn-buy{
+  margin-right: 10px;
+  cursor: pointer;
+}

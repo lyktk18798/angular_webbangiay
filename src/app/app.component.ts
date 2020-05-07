@@ -14,9 +14,11 @@ export class AppComponent implements OnInit{
   name: string;
   totalProducts: number = 0;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.totalProducts = this.shoppingCartService.getCarts().length;
     this.shoppingCartService.changeEmitted$.
-    _subscribe(rs => this.totalProducts = rs)
+    _subscribe(rs => this.totalProducts = rs
+    )
   }
 
   search () {

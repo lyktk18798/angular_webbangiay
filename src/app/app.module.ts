@@ -11,12 +11,16 @@ import {TabComponent} from './components/tabs/tab.component';
 import {TabsComponent} from './components/tabs/tabs.component';
 import {HomeComponent} from './components/home/home.component';
 import { FilterComponent } from './components/filter/filter.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import {MyCurrencyFormatterDirective} from './helpers/my-currency-formatter.directive';
 import {MyCurrencyPipe} from './helpers/my-currency.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from './components/carousel/carousel.component';
+import { InfoOrderComponent } from './components/info-order/info-order.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
+import {AlertComponent} from './helpers/alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,10 @@ import {CarouselComponent} from './components/carousel/carousel.component';
     CartComponent,
     MyCurrencyFormatterDirective,
     CarouselComponent,
-
+    InfoOrderComponent,
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +46,7 @@ import {CarouselComponent} from './components/carousel/carousel.component';
     RouterModule,
     FormsModule,
     NgbModule,
+    ReactiveFormsModule
   ],
   providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent],
   bootstrap: [AppComponent],
