@@ -3,17 +3,19 @@ import {AuthenticationService} from '../../service/authentication.service';
 import {Request} from '../../models/request';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Customer} from '../../models/customer';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent {
   loading = false;
   returnUrl: string;
   error = '';
   request: Request = new Request();
+  user: Customer = new Customer();
   loginForm = new FormGroup ({
     username: new FormControl (''),
     password: new FormControl(''),
@@ -40,9 +42,5 @@ export class LoginComponent {
 
   forgotPass () {
     this.router.navigate(['/register']);
-  }
-
-  register () {
-
   }
 }

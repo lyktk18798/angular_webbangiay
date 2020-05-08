@@ -22,6 +22,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AlertComponent} from './helpers/alert/alert.component';
 import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,7 @@ import { DefaultLayoutComponent } from './components/default-layout/default-layo
     RouterModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent],
   bootstrap: [AppComponent],
