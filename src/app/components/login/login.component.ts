@@ -37,7 +37,7 @@ export class LoginComponent {
     this.loading = true;
     this.request.username = this.loginForm.value.username;
     this.request.password = this.loginForm.value.password;
-    this.service.login(this.request);
+    this.service.login(this.request)
   }
 
   forgotPass () {

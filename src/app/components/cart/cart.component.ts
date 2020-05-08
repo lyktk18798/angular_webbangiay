@@ -1,12 +1,13 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import {Product} from '../../models/product';
 import {ShoppingCartService} from '../../service/shopping-cart.service';
-import {OrderService} from '../../service/order.service';
 import {Router} from '@angular/router';
+import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
+  providers: [NgbPaginationConfig]
 })
 export class CartComponent implements OnInit {
   page = 1;
@@ -31,5 +32,12 @@ export class CartComponent implements OnInit {
 
   buyProducts(){
     this.router.navigate(['/info_order']);
+  }
+  trackByItems(index: number, item: Product): number { return item.id; }
+
+  changeQuantity(value, index){
+    this.lstRs[index].quantity = +value;
+    //update to localstorage
+    this.shoppingCartService.setCarts(this.lstRs);
   }
 }

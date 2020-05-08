@@ -32,13 +32,22 @@
           </span>
           </a>
         </div>
-        <div class="login-rigister">
+        <div class="login-rigister " *ngIf="isUserLogin; else elseBlock">
           <ul class="unstyled-list list-inline">
-            <li><a class="login" [routerLink]="['/login']">Login <span> </span></a></li>
-            <li><a class="rigister" [routerLink]="['/register']">REGISTER <span> </span></a></li>
+            <li><span class="txt-info">Hi, {{userLogin?.email}}</span></li>
+            <li><a class="btn-logout" (click)="logout()"><i class="fa fa-sign-out"></i></a></li>
             <div class="clearfix"></div>
           </ul>
         </div>
+        <ng-template #elseBlock>
+          <div class="login-rigister">
+            <ul class="unstyled-list list-inline">
+              <li><a class="login" [routerLink]="['/login']">Login <span> </span></a></li>
+              <li><a class="rigister" [routerLink]="['/register']">REGISTER <span> </span></a></li>
+              <div class="clearfix"></div>
+            </ul>
+          </div>
+        </ng-template>
         <div class="clearfix"></div>
       </div>
     </div>

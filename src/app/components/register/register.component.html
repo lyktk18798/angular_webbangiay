@@ -3,12 +3,12 @@
   <form class="form-signup" [formGroup]="saveForm" (ngSubmit)="register()">
     <div class="social-login">
       <button class="btn facebook-btn social-btn" type="button"><span>
-        <i class="fab fa-facebook-f"></i>
+        <i class="fa fa-facebook-f"></i>
         Sign up with Facebook</span> </button>
     </div>
     <div class="social-login">
       <button class="btn google-btn social-btn" type="button"><span>
-        <i class="fab fa-google-plus-g"></i>
+        <i class="fa fa-google"></i>
         Sign up with Google+</span> </button>
     </div>
 
@@ -48,8 +48,8 @@
         <div *ngIf="comfirmPassword.errors.mustMatch">Passwords must match</div>
       </div>
     </div>
-    <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
-    <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-user-plus"></i> Sign Up</button>
+    <a href="#" id="cancel_signup" [routerLink]="['/login']"><i class="fa fa-angle-left"></i> Back</a>
   </form>
 </div>
 

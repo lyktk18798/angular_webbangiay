@@ -44,6 +44,8 @@ export class RegisterComponent implements OnInit {
 // stop here if form is invalid
     if (this.saveForm.valid) {
       this.submitted = false;
+    }else{
+      return;
     }
     this.user.email = this.saveForm.value.email;
     this.user.phone = this.saveForm.value.phone;

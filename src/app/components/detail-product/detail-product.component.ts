@@ -34,6 +34,7 @@ export class DetailProductComponent implements OnInit {
     this.productService.getProductById(this.productId).subscribe(response => {
       this.product = response;
       this.product.discount = 0.2;
+      this.product.price = response.price*(1-response.discount);
     }, error => {
       alert(`${error.error}`);
       this.router.navigate([this.returnUrl]);
