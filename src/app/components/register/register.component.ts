@@ -42,17 +42,19 @@ export class RegisterComponent implements OnInit {
   register () {
     this.submitted = true;
 // stop here if form is invalid
-    if (this.saveForm.invalid) {
-      return;
+    if (this.saveForm.valid) {
+      this.submitted = false;
     }
     this.user.email = this.saveForm.value.email;
-    this.user.phonenumber = this.saveForm.value.phonenumber;
+    this.user.phone = this.saveForm.value.phone;
+    this.user.password = this.saveForm.value.password;
     this.apiService.register(this.user)
-    .subscribe(rs => {
-      console.log('done');
-      this.router.navigate(['/login']);
-    });
-  }
+    .subscribe(
+      rs => this.router.navigate(['/login']),
+    error1 => this.router.navigate(['/register'])
+    )
+    }
+
   forgotPass () {
   }
 
