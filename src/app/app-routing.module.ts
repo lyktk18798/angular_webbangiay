@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent},
     ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  { path: '**', pathMatch: 'full', redirectTo: '/home' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

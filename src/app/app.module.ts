@@ -22,6 +22,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AlertComponent} from './helpers/alert/alert.component';
 import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import {ModalComfirmComponent} from './components/modal-comfirm/modal-comfirm.component';
 
 @NgModule({
   declarations: [
@@ -40,18 +41,21 @@ import { DefaultLayoutComponent } from './components/default-layout/default-layo
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    ModalComfirmComponent,
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
+
   ],
-  providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent],
+  providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent,],
+  entryComponents: [ModalComfirmComponent],
   bootstrap: [AppComponent],
   exports: [ MyCurrencyFormatterDirective, CarouselComponent ],
 

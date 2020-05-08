@@ -24,7 +24,9 @@ export class DefaultLayoutComponent implements OnInit {
     this.totalProducts = this.shoppingCartService.getCarts().length;
     this.getUserLogin();
     this.shoppingCartService.changeEmitted$.
-    _subscribe(rs => this.totalProducts = rs
+    _subscribe(rs => {
+      this.totalProducts = rs;
+    }
     );
     this.authenticationService.changeEmitted$._subscribe(rs => this.isUserLogin = rs);
     this.isUserLogin = this.userLogin.id ? true : false;

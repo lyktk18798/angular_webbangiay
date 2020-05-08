@@ -5,6 +5,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {OrderRequest} from '../../models/order.request';
 import {AuthenticationService} from '../../service/authentication.service';
 import {OrderService} from '../../service/order.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalComfirmComponent} from '../modal-comfirm/modal-comfirm.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-info-order',
@@ -16,7 +19,9 @@ export class InfoOrderComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService,
               private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private modalService: NgbModal,
+              private router: Router) { }
   lstProducts: Product[] = [];
   total: number = 0;
   saveForm: FormGroup;
@@ -45,8 +50,31 @@ export class InfoOrderComponent implements OnInit {
     this.obj.customerId = this.authenticationService.getUserInfo().id;
     this.obj.lstProducts = this.lstProducts;
     this.obj.address = this.saveForm.value.address;
+
     this.orderService.buyProduct(this.obj)
-    .subscribe(rs => console.log('done'),
-      error1 => console.log('errrr'))
+    .subscribe(rs => {
+      //remove cart in local storage
+      this.shoppingCartService.removeCart();
+      this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length);
+      this.lstProducts = this.shoppingCartService.getCarts();
+        const modalRef = this.modalService.open(ModalComfirmComponent);
+        modalRef.componentInstance.mess = 'Your order is being approved';
+
+        modalRef.result.then((data) => {
+          this.router.navigate(['/home']);
+        }, (reason) => {
+          this.router.navigate(['/home']);
+        });
+      },
+      error1 => {
+        const modalRefErr = this.modalService.open(ModalComfirmComponent);
+        modalRefErr.componentInstance.mess = 'An error occurred. Please try again!';
+
+        modalRefErr.result.then((data) => {
+          this.router.navigate(['/home']);
+        }, (reason) => {
+          this.router.navigate(['/home']);
+        });
+      })
   }
 }

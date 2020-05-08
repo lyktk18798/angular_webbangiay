@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import {ProductService} from '../../service/product.service';
 import {Product} from '../../models/product';
 @Component({
   selector: 'app-carousel',

@@ -1,12 +1,10 @@
 .picsum-img-wrapper {
-  max-width: 50%;
 }
 
-/*ngb-carousel .picsum-img-wrapper>img {*/
-  /*position: absolute;*/
-  /*object-fit: contain;*/
-  /*top: 0;*/
-  /*left: 0;*/
-  /*bottom: 0;*/
-  /*right: 0;*/
-/*}*/
+ngb-carousel .picsum-img-wrapper>img {
+  object-fit: contain;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

@@ -44,4 +44,8 @@ export class ShoppingCartService {
     this.setCarts(lstProduct.filter(item => item.id !== id));
   }
 
+  removeCart(){
+    localStorage.removeItem(CART);
+  }
+
 }
