@@ -8,16 +8,23 @@ import {ContactComponent} from './components/contact/contact.component';
 import {InfoOrderComponent} from './components/info-order/info-order.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import {DefaultLayoutComponent} from './components/default-layout/default-layout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'product-list/:groupId/:name/:color/:category', component: ProductsComponent },
-  { path: 'product/:id', component: DetailProductComponent},
-  { path: 'cart', component: CartComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'register', component: RegisterComponent},
-  { path: 'info_order', component: InfoOrderComponent},
-  { path: 'contact', component: ContactComponent},
+  {
+    path: '',
+    component: DefaultLayoutComponent,
+    children: [
+      {path: 'home', component: HomeComponent},
+      { path: 'info_order', component: InfoOrderComponent},
+      { path: 'contact', component: ContactComponent},
+      { path: 'product-list/:groupId/:name/:color/:category', component: ProductsComponent },
+      { path: 'product/:id', component: DetailProductComponent},
+      { path: 'cart', component: CartComponent},
+    ]
+  },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
 @NgModule({

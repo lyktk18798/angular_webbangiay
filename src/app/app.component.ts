@@ -8,24 +8,26 @@ import {ShoppingCartService} from './service/shopping-cart.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  constructor(private router: Router,
-              private shoppingCartService: ShoppingCartService) {}
-  title = 'webbangiay';
-  name: string;
-  totalProducts: number = 0;
-
-  ngOnInit() {
-    this.totalProducts = this.shoppingCartService.getCarts().length;
-    this.shoppingCartService.changeEmitted$.
-    _subscribe(rs => this.totalProducts = rs
-    )
+  ngOnInit(): void {
   }
-
-  search () {
-    this.router.navigate(['/product-list', 0, this.name, 0, 0]);
-  }
-
-  openCart(){
-    this.router.navigate(['/cart']);
-  }
+  // constructor(private router: Router,
+  //             private shoppingCartService: ShoppingCartService) {}
+  // title = 'webbangiay';
+  // name: string;
+  // totalProducts: number = 0;
+  //
+  // ngOnInit() {
+  //   this.totalProducts = this.shoppingCartService.getCarts().length;
+  //   this.shoppingCartService.changeEmitted$.
+  //   _subscribe(rs => this.totalProducts = rs
+  //   )
+  // }
+  //
+  // search () {
+  //   this.router.navigate(['/product-list', 0, this.name, 0, 0]);
+  // }
+  //
+  // openCart(){
+  //   this.router.navigate(['/cart']);
+  // }
 }

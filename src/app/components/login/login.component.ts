@@ -3,12 +3,12 @@ import {AuthenticationService} from '../../service/authentication.service';
 import {Request} from '../../models/request';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-root',
   templateUrl: 'login.component.html'
 })
+
 export class LoginComponent {
   loading = false;
   returnUrl: string;
@@ -22,7 +22,6 @@ export class LoginComponent {
     private route: ActivatedRoute,
     private router: Router,
     private service: AuthenticationService,
-    private modalService: NgbModal
   ) {}
   OnInit () {
     // reset login status

@@ -21,6 +21,7 @@ import { InfoOrderComponent } from './components/info-order/info-order.component
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AlertComponent} from './helpers/alert/alert.component';
+import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import {AlertComponent} from './helpers/alert/alert.component';
     InfoOrderComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    DefaultLayoutComponent
   ],
   imports: [
     BrowserModule,
