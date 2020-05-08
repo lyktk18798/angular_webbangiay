@@ -1,7 +1,12 @@
 <ngb-carousel *ngIf="lstSellingProduct">
-  <ng-template ngbSlide *ngFor="let item of lstSellingProduct">
+  <ng-template ngbSlide >
     <div class="picsum-img-wrapper">
-      <img style="max-width: 100%" src="assets/images/products/{{item.image}}" alt="{{item.name}}">
+      <img style="max-width: 100%" src="assets/images/product-slide/slide1.png">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide >
+    <div class="picsum-img-wrapper">
+      <img style="max-width: 100%" src="assets/images/product-slide/slide2.png" >
     </div>
   </ng-template>
 </ngb-carousel>
