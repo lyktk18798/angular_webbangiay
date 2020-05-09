@@ -54,5 +54,5 @@ export class FilterComponent implements OnInit {
   getBrands() {
     this.helperService.getAllCategory()
     .subscribe(rs => this.lstBrands = rs);
-  }ß
+  }
 }

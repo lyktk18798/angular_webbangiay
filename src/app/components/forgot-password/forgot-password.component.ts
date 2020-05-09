@@ -40,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
 
       modalRef.result.then((data) => {
         this.router.navigate(['/login']);
-      }, (reason) => {ß
+      }, (reason) => {
       });
     }, error1 => {
       const modalRef = this.modalService.open(ModalComfirmComponent);

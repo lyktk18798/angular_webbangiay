@@ -53,9 +53,11 @@ export class LoginComponent {
         }
       },
       error => {
+      
         const modalRefErr = this.modalService.open(ModalComfirmComponent);
         modalRefErr.componentInstance.mess = 'An error occurred. Please try again!';
         modalRefErr.componentInstance.title = 'Error';
+
         modalRefErr.result.then((data) => {
           this.service.emitChange(false);
         }, (reason) => {

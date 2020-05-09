@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {ShoppingCartService} from '../../service/shopping-cart.service';
 import {Customer} from '../../models/customer';
 import {AuthenticationService} from '../../service/authentication.service';
-ß
+
 @Component({
   selector: 'app-default-layout',
   templateUrl: './default-layout.component.html',
