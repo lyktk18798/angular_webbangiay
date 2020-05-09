@@ -15,7 +15,7 @@
         <a class="brand-name" [routerLink]="['/product/',item.id]"><img src="assets/images/branch/b{{item.category.id}}.jpg" title="name"/></a>
         <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}" title="product-name"/></a>
         <h4><a [routerLink]="['/product/',item.id]">{{ item.name}}</a></h4>
-        <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span>
+        <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price | number}}</span>
           <small>GET NOW</small>
           <label> </label></a>
       </div>
