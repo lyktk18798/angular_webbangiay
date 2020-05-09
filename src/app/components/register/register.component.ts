@@ -14,7 +14,6 @@ import {MustMatch} from '../../helpers/must-match.validator';
 export class RegisterComponent implements OnInit {
   saveForm: FormGroup;
   user: Customer = new Customer();
-  submitted = false;
   constructor(private apiService: AuthenticationService,
               private router: Router,
               private alertService: AlertService,
@@ -34,19 +33,12 @@ export class RegisterComponent implements OnInit {
   get phone() { return this.saveForm.get('phone'); }
   get password() { return this.saveForm.get('password'); }
   get comfirmPassword() { return this.saveForm.get('comfirmPassword'); }
-  get emailValid() {return this.submitted || this.email.invalid && (this.email.dirty || this.email.touched) && this.email.errors ; }
-  get phoneValid() {return this.submitted || this.phone.invalid && (this.phone.dirty || this.phone.touched) && this.phone.errors ; }
-  get passwordValid() {return this.submitted || this.password.invalid && (this.password.dirty || this.password.touched) && this.password.errors ; }
-  get comfirmPasswordValid() {return this.submitted || this.comfirmPassword.invalid && (this.comfirmPassword.dirty || this.comfirmPassword.touched) && this.password.errors ; }
+  get emailValid() {return this.email.invalid && (this.email.dirty || this.email.touched) && this.email.errors ; }
+  get phoneValid() {return this.phone.invalid && (this.phone.dirty || this.phone.touched) && this.phone.errors ; }
+  get passwordValid() {return  this.password.invalid && (this.password.dirty || this.password.touched) && this.password.errors ; }
+  get comfirmPasswordValid() {return this.comfirmPassword.invalid && (this.comfirmPassword.dirty || this.comfirmPassword.touched) && this.password.errors ; }
 
   register () {
-    this.submitted = true;
-// stop here if form is invalid
-    if (this.saveForm.valid) {
-      this.submitted = false;
-    }else{
-      return;
-    }
     this.user.email = this.saveForm.value.email;
     this.user.phone = this.saveForm.value.phone;
     this.user.password = this.saveForm.value.password;

@@ -8,6 +8,7 @@ import {OrderService} from '../../service/order.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComfirmComponent} from '../modal-comfirm/modal-comfirm.component';
 import {Router} from '@angular/router';
+import {Customer} from '../../models/customer';
 
 @Component({
   selector: 'app-info-order',
@@ -25,7 +26,6 @@ export class InfoOrderComponent implements OnInit {
   lstProducts: Product[] = [];
   total: number = 0;
   saveForm: FormGroup;
-  submitted = false;
   obj: OrderRequest = new OrderRequest();
 
   ngOnInit() {
@@ -38,15 +38,39 @@ export class InfoOrderComponent implements OnInit {
   }
 
   get address() { return this.saveForm.get('address'); }
-  get addressValid() {return this.submitted || this.address.invalid && (this.address.dirty || this.address.touched) && this.address.errors ; }
+  get addressValid() {return this.address.invalid &&
+    (this.address.dirty || this.address.touched) && this.address.errors ; }
 
   buy(){
-    this.submitted = true;
-    if (this.saveForm.valid) {
-      this.submitted = false;
-    }else{
+    if (this.saveForm.invalid) {
       return;
     }
+
+    //check shopping cart
+    if(this.shoppingCartService.getCarts().length === 0){
+      const modalRef = this.modalService.open(ModalComfirmComponent);
+      modalRef.componentInstance.mess = `You dont't have any items in shopping cart! <br> 
+                                         Return to home to choose items which you want`;
+
+      modalRef.result.then((data) => {
+        this.router.navigate(['/home']);
+      }, (reason) => {
+      });
+      return;
+    }
+
+    //check user login
+    if(!this.authenticationService.getUserInfo().id){
+      const modalRef = this.modalService.open(ModalComfirmComponent);
+      modalRef.componentInstance.mess = 'You need to login first!';
+
+      modalRef.result.then((data) => {
+        this.router.navigate(['/login']);
+      }, (reason) => {
+      });
+      return;
+    }
+
     this.obj.customerId = this.authenticationService.getUserInfo().id;
     this.obj.lstProducts = this.lstProducts;
     this.obj.address = this.saveForm.value.address;
@@ -63,7 +87,7 @@ export class InfoOrderComponent implements OnInit {
         modalRef.result.then((data) => {
           this.router.navigate(['/home']);
         }, (reason) => {
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
         });
       },
       error1 => {
@@ -73,7 +97,7 @@ export class InfoOrderComponent implements OnInit {
         modalRefErr.result.then((data) => {
           this.router.navigate(['/home']);
         }, (reason) => {
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
         });
       })
   }

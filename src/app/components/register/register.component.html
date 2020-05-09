@@ -48,7 +48,7 @@
         <div *ngIf="comfirmPassword.errors.mustMatch">Passwords must match</div>
       </div>
     </div>
-    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-user-plus"></i> Sign Up</button>
+    <button class="btn btn-primary btn-block" type="submit" [disabled]="saveForm.invalid"><i class="fa fa-user-plus"></i> Sign Up</button>
     <a href="#" id="cancel_signup" [routerLink]="['/login']"><i class="fa fa-angle-left"></i> Back</a>
   </form>
 </div>
