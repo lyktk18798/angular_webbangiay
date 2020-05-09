@@ -1,25 +1,27 @@
 <!----content---->
-  <div class="container">
-    <app-filter></app-filter>
-    <div class="clearfix"> </div>
-    <div class="special-products all-poroducts">
-      <div class="s-products-head">
-        <div class="s-products-head-left">
-          <h3><span>PRODUCTS</span></h3>
-        </div>
-        <div class="clearfix"> </div>
+<div class="container">
+  <app-filter></app-filter>
+  <div class="clearfix"></div>
+  <div class="special-products all-poroducts">
+    <div class="s-products-head">
+      <div class="s-products-head-left">
+        <h3><span>PRODUCTS</span></h3>
       </div>
-      <!----special-products-grids---->
-      <div class="special-products-grids">
-        <div class="col-md-3 special-products-grid text-center" *ngFor="let item of lstProducts">
-          <a class="brand-name"  [routerLink]="['/product/',item.id]"><img src="assets/images/branch/b{{item.category.id}}.jpg"  title="name" /></a>
-          <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}" title="product-name" /></a>
-          <h4><a [routerLink]="['/product/',item.id]">{{ item.name}}</a></h4>
-          <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span><small>GET NOW</small><label> </label></a>
-        </div>
-        <span *ngIf="lstProducts.length === 0">No products</span>
-        <div class="clearfix"> </div>
+      <div class="clearfix"></div>
+    </div>
+    <!----special-products-grids---->
+    <div class="special-products-grids">
+      <div class="col-md-3 special-products-grid text-center" *ngFor="let item of lstProducts">
+        <a class="brand-name" [routerLink]="['/product/',item.id]"><img src="assets/images/branch/b{{item.category.id}}.jpg" title="name"/></a>
+        <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}" title="product-name"/></a>
+        <h4><a [routerLink]="['/product/',item.id]">{{ item.name}}</a></h4>
+        <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span>
+          <small>GET NOW</small>
+          <label> </label></a>
       </div>
+      <span *ngIf="lstProducts.length === 0">No products</span>
+      <div class="clearfix"></div>
     </div>
   </div>
+</div>
 

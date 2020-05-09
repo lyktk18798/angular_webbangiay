@@ -8,8 +8,12 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalComfirmComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) {
+  }
+
+  @Input() title;
   @Input() mess;
+
   ngOnInit() {
   }
 }

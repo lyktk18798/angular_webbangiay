@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../service/product.service';
 import {Product} from '../../models/product';
+
 @Component({
   selector: 'app-products',
   templateUrl: './home.component.html',
@@ -11,7 +12,9 @@ export class HomeComponent implements OnInit {
   lstProductMan: Product[] = [];
   lstProductKids: Product[] = [];
   lstSellingProduct: Product[] = [];
-  constructor(private apiService: ProductService) {}
+
+  constructor(private apiService: ProductService) {
+  }
 
   ngOnInit() {
     this.getProductWoman();
@@ -20,22 +23,22 @@ export class HomeComponent implements OnInit {
     this.getSellingProducts();
   }
 
-  getProductWoman () {
+  getProductWoman() {
     this.apiService.getProductByGroup(1)
     .subscribe(rs => this.lstProductWoman = rs);
   }
 
-  getProductMan () {
+  getProductMan() {
     this.apiService.getProductByGroup(2)
     .subscribe(rs => this.lstProductMan = rs);
   }
 
-  getProductKids () {
+  getProductKids() {
     this.apiService.getProductByGroup(3)
     .subscribe(rs => this.lstProductKids = rs);
   }
 
-  getSellingProducts () {
+  getSellingProducts() {
     this.apiService.getSellingProduct()
     .subscribe(rs => this.lstSellingProduct = rs);
   }

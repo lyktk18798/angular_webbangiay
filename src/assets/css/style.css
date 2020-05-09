@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
   	font-family: 'Lato', sans-serif;
     font-size: 100%;
-  	 background: #F2F2F2;
+  	 /*background: #F2F2F2;*/
 }
 body a{
 	transition:0.5s all;

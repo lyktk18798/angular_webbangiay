@@ -4,16 +4,16 @@
  * and ngTemplateOutletContext directives.
  */
 
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-my-tab',
   styles: [
+      `
+      .pane {
+        padding: 1em;
+      }
     `
-    .pane{
-      padding: 1em;
-    }
-  `
   ],
   template: `
     <div [hidden]="!active" class="pane">

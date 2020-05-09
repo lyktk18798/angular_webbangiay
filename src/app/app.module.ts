@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { DetailProductComponent } from './components/detail-product/detail-product.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {DetailProductComponent} from './components/detail-product/detail-product.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {ProductsComponent} from './components/products/products.component';
@@ -10,19 +10,20 @@ import {HttpClientModule} from '@angular/common/http';
 import {TabComponent} from './components/tabs/tab.component';
 import {TabsComponent} from './components/tabs/tabs.component';
 import {HomeComponent} from './components/home/home.component';
-import { FilterComponent } from './components/filter/filter.component';
+import {FilterComponent} from './components/filter/filter.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CartComponent } from './components/cart/cart.component';
+import {CartComponent} from './components/cart/cart.component';
 import {MyCurrencyFormatterDirective} from './helpers/my-currency-formatter.directive';
 import {MyCurrencyPipe} from './helpers/my-currency.pipe';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselComponent} from './components/carousel/carousel.component';
-import { InfoOrderComponent } from './components/info-order/info-order.component';
+import {InfoOrderComponent} from './components/info-order/info-order.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {AlertComponent} from './helpers/alert/alert.component';
-import { DefaultLayoutComponent } from './components/default-layout/default-layout.component';
+import {DefaultLayoutComponent} from './components/default-layout/default-layout.component';
 import {ModalComfirmComponent} from './components/modal-comfirm/modal-comfirm.component';
+import {ForgotPasswordComponent} from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {ModalComfirmComponent} from './components/modal-comfirm/modal-comfirm.co
     AlertComponent,
     DefaultLayoutComponent,
     ModalComfirmComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -57,7 +59,8 @@ import {ModalComfirmComponent} from './components/modal-comfirm/modal-comfirm.co
   providers: [MyCurrencyFormatterDirective, MyCurrencyPipe, CarouselComponent,],
   entryComponents: [ModalComfirmComponent],
   bootstrap: [AppComponent],
-  exports: [ MyCurrencyFormatterDirective, CarouselComponent ],
+  exports: [MyCurrencyFormatterDirective, CarouselComponent],
 
 })
-export class AppModule { }
+export class AppModule {
+}

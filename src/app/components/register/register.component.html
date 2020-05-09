@@ -1,15 +1,14 @@
-
 <div id="logreg-forms">
   <form class="form-signup" [formGroup]="saveForm" (ngSubmit)="register()">
     <div class="social-login">
       <button class="btn facebook-btn social-btn" type="button"><span>
         <i class="fa fa-facebook-f"></i>
-        Sign up with Facebook</span> </button>
+        Sign up with Facebook</span></button>
     </div>
     <div class="social-login">
       <button class="btn google-btn social-btn" type="button"><span>
         <i class="fa fa-google"></i>
-        Sign up with Google+</span> </button>
+        Sign up with Google+</span></button>
     </div>
 
     <p style="text-align:center">OR</p>
@@ -42,7 +41,7 @@
 
     <div class="form-group row mr-15">
       <input type="password" id="user-repeatpass" class="form-control" placeholder="Comfirm Password"
-             formControlName="comfirmPassword" required [ngClass]="{ 'is-invalid': comfirmPasswordValid}" >
+             formControlName="comfirmPassword" required [ngClass]="{ 'is-invalid': comfirmPasswordValid}">
       <div *ngIf="comfirmPasswordValid" class="invalid-feedback mr-b-15">
         <div *ngIf="comfirmPassword.errors.required">Confirm Password is required</div>
         <div *ngIf="comfirmPassword.errors.mustMatch">Passwords must match</div>

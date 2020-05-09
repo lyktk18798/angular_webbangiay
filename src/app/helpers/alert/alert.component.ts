@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Router, NavigationStart} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 import {Alert, AlertType} from '../../models/alert.model';
 import {AlertService} from '../../service/alert.service';
+
 @Component({
   selector: 'app-alert',
   templateUrl: 'alert.component.html'
@@ -17,7 +18,8 @@ export class AlertComponent implements OnInit, OnDestroy {
   alertSubscription: Subscription;
   routeSubscription: Subscription;
 
-  constructor(private router: Router, private alertService: AlertService) { }
+  constructor(private router: Router, private alertService: AlertService) {
+  }
 
   ngOnInit() {
     // subscribe to new alert notifications

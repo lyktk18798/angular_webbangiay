@@ -8,15 +8,15 @@
           <li *ngFor="let item of lstBrands | slice: 0: 10">
             <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', 0, item.id]">{{item.name}}</a>
           </li>
-          <div class="clearfix"> </div>
+          <div class="clearfix"></div>
         </ul>
         <ul class="col-md-6 unstyled-list b-list2">
           <li *ngFor="let item of lstBrands | slice: 10 : 14 ">
             <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', 0, item.id]">{{item.name}}</a>
           </li>
-          <div class="clearfix"> </div>
+          <div class="clearfix"></div>
         </ul>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
       </div>
       <!---->
       <div class="col-md-6 product-filter-grid1-brands-col2">
@@ -52,12 +52,13 @@
         <div class="products-colors">
           <h3>SELECT COLOR </h3>
           <li *ngFor="let item of lstColors">
-            <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', item.id, 0]"><span [style.backgroundColor]="item.name"></span></a>
+            <a style="cursor: pointer" [routerLink]="['/product-list/', 0, '', item.id, 0]"><span
+              [style.backgroundColor]="item.name"></span></a>
           </li>
-          <div class="clearfix"> </div>
+          <div class="clearfix"></div>
         </div>
       </div>
-      <div class="clearfix"> </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 </div>

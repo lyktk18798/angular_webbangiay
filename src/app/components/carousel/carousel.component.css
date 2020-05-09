@@ -1,7 +1,7 @@
 .picsum-img-wrapper {
 }
 
-ngb-carousel .picsum-img-wrapper>img {
+ngb-carousel .picsum-img-wrapper > img {
   object-fit: contain;
   top: 0;
   left: 0;

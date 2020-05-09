@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 import {TOKEN_NAME} from '../constants/Constants';
 
 @Injectable()

@@ -1,9 +1,10 @@
-import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { Injectable } from '@angular/core';
+import {NgbDateParserFormatter, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {Injectable} from '@angular/core';
 import {isNumber, padNumber, toInteger} from './number';
+
 /**
-* This Service handles how the date is rendered and parsed from keyboard i.e. in the bound input field.
-*/
+ * This Service handles how the date is rendered and parsed from keyboard i.e. in the bound input field.
+ */
 @Injectable()
 export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {
   readonly DELIMITER = '-';
@@ -12,7 +13,7 @@ export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {
     if (value) {
       const dateParts = value.trim().split(this.DELIMITER);
       if (dateParts.length === 1 && isNumber(dateParts[0])) {
-        return { day: toInteger(dateParts[0]), month: null, year: null };
+        return {day: toInteger(dateParts[0]), month: null, year: null};
       } else if (dateParts.length === 2 && isNumber(dateParts[0]) && isNumber(dateParts[1])) {
         return {
           day: toInteger(dateParts[0]),

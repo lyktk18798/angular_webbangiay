@@ -14,10 +14,10 @@
       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" formControlName="username" required>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" formControlName="password" required>
 
-      <button class="btn btn-success btn-block" type="submit">
+      <button class="btn btn-success btn-block" type="submit" [disabled]="loginForm.invalid">
         <i class="fa fa-sign-in"></i>
         Sign in</button>
-      <a href="#" id="forgot_pswd" (click)="forgotPass()">Forgot password?</a>
+      <a id="forgot_pswd" routerLink="/forgot-pass">Forgot password?</a>
       <hr>
       <!-- <p>Don't have an account!</p>  -->
       <button class="btn btn-primary btn-block" type="button" id="btn-signup" routerLink="/register">

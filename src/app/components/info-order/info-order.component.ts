@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../../models/product';
 import {ShoppingCartService} from '../../service/shopping-cart.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OrderRequest} from '../../models/order.request';
 import {AuthenticationService} from '../../service/authentication.service';
 import {OrderService} from '../../service/order.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComfirmComponent} from '../modal-comfirm/modal-comfirm.component';
 import {Router} from '@angular/router';
-import {Customer} from '../../models/customer';
 
 @Component({
   selector: 'app-info-order',
@@ -22,7 +21,9 @@ export class InfoOrderComponent implements OnInit {
               private authenticationService: AuthenticationService,
               private orderService: OrderService,
               private modalService: NgbModal,
-              private router: Router) { }
+              private router: Router) {
+  }
+
   lstProducts: Product[] = [];
   total: number = 0;
   saveForm: FormGroup;
@@ -37,21 +38,26 @@ export class InfoOrderComponent implements OnInit {
     });
   }
 
-  get address() { return this.saveForm.get('address'); }
-  get addressValid() {return this.address.invalid &&
-    (this.address.dirty || this.address.touched) && this.address.errors ; }
+  get address() {
+    return this.saveForm.get('address');
+  }
 
-  buy(){
+  get addressValid() {
+    return this.address.invalid &&
+      (this.address.dirty || this.address.touched) && this.address.errors;
+  }
+
+  buy() {
     if (this.saveForm.invalid) {
       return;
     }
 
     //check shopping cart
-    if(this.shoppingCartService.getCarts().length === 0){
+    if (this.shoppingCartService.getCarts().length === 0) {
       const modalRef = this.modalService.open(ModalComfirmComponent);
       modalRef.componentInstance.mess = `You dont't have any items in shopping cart! <br> 
                                          Return to home to choose items which you want`;
-
+      modalRef.componentInstance.title = 'Warning';
       modalRef.result.then((data) => {
         this.router.navigate(['/home']);
       }, (reason) => {
@@ -60,10 +66,10 @@ export class InfoOrderComponent implements OnInit {
     }
 
     //check user login
-    if(!this.authenticationService.getUserInfo().id){
+    if (!this.authenticationService.getUserInfo().id) {
       const modalRef = this.modalService.open(ModalComfirmComponent);
       modalRef.componentInstance.mess = 'You need to login first!';
-
+      modalRef.componentInstance.title = 'Warning';
       modalRef.result.then((data) => {
         this.router.navigate(['/login']);
       }, (reason) => {
@@ -77,13 +83,13 @@ export class InfoOrderComponent implements OnInit {
 
     this.orderService.buyProduct(this.obj)
     .subscribe(rs => {
-      //remove cart in local storage
-      this.shoppingCartService.removeCart();
-      this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length);
-      this.lstProducts = this.shoppingCartService.getCarts();
+        //remove cart in local storage
+        this.shoppingCartService.removeCart();
+        this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length);
+        this.lstProducts = this.shoppingCartService.getCarts();
         const modalRef = this.modalService.open(ModalComfirmComponent);
         modalRef.componentInstance.mess = 'Your order is being approved';
-
+        modalRef.componentInstance.title = 'Notification';
         modalRef.result.then((data) => {
           this.router.navigate(['/home']);
         }, (reason) => {
@@ -93,12 +99,12 @@ export class InfoOrderComponent implements OnInit {
       error1 => {
         const modalRefErr = this.modalService.open(ModalComfirmComponent);
         modalRefErr.componentInstance.mess = 'An error occurred. Please try again!';
-
+        modalRefErr.componentInstance.title = 'Error';
         modalRefErr.result.then((data) => {
           this.router.navigate(['/home']);
         }, (reason) => {
           // this.router.navigate(['/home']);
         });
-      })
+      });
   }
 }

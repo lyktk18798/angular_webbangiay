@@ -1,7 +1,7 @@
-import { Directive, HostListener, ElementRef, OnInit } from "@angular/core";
-import { MyCurrencyPipe } from "./my-currency.pipe";
+import {Directive, HostListener, ElementRef, OnInit} from '@angular/core';
+import {MyCurrencyPipe} from './my-currency.pipe';
 
-@Directive({ selector: "[myCurrencyFormatter]" })
+@Directive({selector: '[myCurrencyFormatter]'})
 export class MyCurrencyFormatterDirective implements OnInit {
 
   private el: HTMLInputElement;
@@ -17,12 +17,12 @@ export class MyCurrencyFormatterDirective implements OnInit {
     this.el.value = this.currencyPipe.transform(this.el.value);
   }
 
-  @HostListener("focus", ["$event.target.value"])
+  @HostListener('focus', ['$event.target.value'])
   onFocus(value) {
     this.el.value = this.currencyPipe.transform(value); // opossite of transform
   }
 
-  @HostListener("blur", ["$event.target.value"])
+  @HostListener('blur', ['$event.target.value'])
   onBlur(value) {
     this.el.value = this.currencyPipe.transform(value);
   }

@@ -1,14 +1,14 @@
-.myIcons{
+.myIcons {
   cursor: pointer;
 }
 
-.input-quantity{
+.input-quantity {
   border-radius: 0.3em;
   text-align: right;
   width: 60%;
 }
 
-.btn-buy{
+.btn-buy {
   margin: 15px;
   cursor: pointer;
 }

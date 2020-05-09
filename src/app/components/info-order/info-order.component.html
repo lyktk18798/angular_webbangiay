@@ -29,15 +29,15 @@
             <div class="form-group row mr-15">
             <textarea class="form-control" placeholder="Address" rows="3"
                       formControlName="address" required [ngClass]="{ 'is-invalid': addressValid}"></textarea>
-                <div *ngIf="addressValid" class="invalid-feedback mr-b-15">
-                  <div *ngIf="address.errors.required">Address delevery is required</div>
-                </div>
+              <div *ngIf="addressValid" class="invalid-feedback mr-b-15">
+                <div *ngIf="address.errors.required">Address delevery is required</div>
+              </div>
             </div>
 
             <div class="form-group row mr-15">
               <button class="btn btn-primary btn-block" type="submit" [disabled]="saveForm.invalid"><i class="fa fa-buy-n"></i> Buy</button>
               <a href="#" id="cancel_signup" [routerLink]="['/cart']"><i class="fa fa-angle-left"></i> Back</a>
-            </div>
+            </div>ß
           </div>
 
         </div>
