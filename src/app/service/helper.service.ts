@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Category} from '../models/category';
 import {Color} from '../models/color';
 import {baseUrl} from '../components/constants/Constants';
+import {GroupProduct} from '../models/group_product';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class HelperService {
 
   getAllColors(): Observable<Color[]> {
     return this.http.get<Color[]>(`${baseUrl}helper/color/getAll`);
+  }
+
+  getAllGroups(): Observable<GroupProduct[]> {
+    return this.http.get<GroupProduct[]>(`${baseUrl}helper/groupProduct/getAll`);
   }
 
 }

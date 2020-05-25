@@ -1,10 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {lstSizes} from '../constants/Constants';
 import {ShoppingCartService} from '../../service/shopping-cart.service';
 import {Product} from '../../models/product';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-
 @Component({
   selector: 'app-detail-product',
   templateUrl: './detail-product.component.html',
@@ -14,10 +13,11 @@ export class DetailProductComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService,
               private productService: ProductService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   lstSizes = lstSizes;
-  product : Product;
+  product: Product;
   productId: string;
   returnUrl: string = this.route.snapshot.queryParams['returnUrl'] || '/';
   quantity: number = 1;
@@ -30,23 +30,21 @@ export class DetailProductComponent implements OnInit {
     });
   }
 
-  getProductById(){
+  getProductById() {
     this.productService.getProductById(this.productId).subscribe(response => {
       this.product = response;
-      this.product.discount = 0.2;
-      this.product.price = response.price*(1-response.discount);
     }, error => {
       alert(`${error.error}`);
       this.router.navigate([this.returnUrl]);
     });
   }
 
-  addToCart(){
+  addToCart() {
     let prod = this.product;
     prod.quantity = this.quantity;
     prod.size = this.size;
     this.shoppingCartService.addToCart(prod);
-    this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length)
+    this.shoppingCartService.emitChange(this.shoppingCartService.getCarts().length);
   }
 
 }

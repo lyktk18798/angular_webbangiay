@@ -10,6 +10,7 @@ import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./cart.component.css'],
   providers: [NgbPaginationConfig]
 })
+
 export class CartComponent implements OnInit {
   page = 1;
   pageSize = 3;

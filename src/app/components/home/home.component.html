@@ -10,7 +10,7 @@
       <div class="col-xs-4">
         <div class="top-row-col1 text-center">
           <h2>WOMAN</h2>
-          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/img-w.jpg"
+          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/groups/woman.jpg"
                title="name">
           <span><img src="assets/images/objs1.png" title="name"></span>
           <h4>TOTAL</h4>
@@ -21,7 +21,7 @@
       <div class="col-xs-4">
         <div class="top-row-col1 text-center">
           <h2>MAN</h2>
-          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/man-r-img.jpg"
+          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/groups/man.jpg"
                title="name">
           <span><img src="assets/images/objs2.png" title="name"></span>
           <h4>TOTAL</h4>
@@ -32,7 +32,7 @@
       <div class="col-xs-4">
         <div class="top-row-col1 text-center">
           <h2>KIDS</h2>
-          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/kid-r-img.jpg"
+          <img class="r-img text-center img-responsive" style="display: inline-block !important;" src="assets/images/groups/kid.jpg"
                title="name">
           <span><img src="assets/images/objs3.png" title="name"></span>
           <h4>TOTAL</h4>
@@ -65,7 +65,7 @@
           <a class="product-here" [routerLink]="['/product/',item.id]"><img src="assets/images/products/{{item.image}}"
                                                                             title="product-name"/></a>
           <h4><a [routerLink]="['/product/',item.id]">{{item.name}}</a></h4>
-          <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item.price}}</span>
+          <a class="product-btn" [routerLink]="['/product/',item.id]"><span>{{item?.price*(1-item?.discount) | number}} VNĐ</span>
             <small>GET NOW</small>
             <label> </label></a>
         </div>

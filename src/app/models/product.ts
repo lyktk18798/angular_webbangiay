@@ -9,7 +9,7 @@ export class Product {
   size: number;
   quantity: number;
   dateImport: string;
-  description: string;
+  desciption: string;
   color: string;
   image: string;
   discount: number;
