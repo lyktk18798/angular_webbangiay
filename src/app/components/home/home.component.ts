@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getProductByGroup(1)
     .subscribe(rs => this.lstProductWoman = rs);
   }
+
   getProductMan() {
     this.apiService.getProductByGroup(2)
     .subscribe(rs => this.lstProductMan = rs);
@@ -51,9 +52,9 @@ export class HomeComponent implements OnInit {
   getGroups() {
     this.helperService.getAllGroups()
     .subscribe(rs => this.lstGroups = rs.map(item => ({
-      ...item,
-      totalProduct: item.name === 'WOMAN' ? this.lstProductWoman.length : item.name === 'MAN' ? this.lstProductMan.length : this.lstProductKids.length,
-    })
+        ...item,
+        totalProduct: item.name === 'WOMAN' ? this.lstProductWoman.length : item.name === 'MAN' ? this.lstProductMan.length : this.lstProductKids.length,
+      })
     ));
   }
 

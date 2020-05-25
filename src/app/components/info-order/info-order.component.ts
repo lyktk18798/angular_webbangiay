@@ -35,6 +35,7 @@ export class InfoOrderComponent implements OnInit {
 
     this.saveForm = this.formBuilder.group({
       address: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
     });
   }
 
@@ -45,6 +46,15 @@ export class InfoOrderComponent implements OnInit {
   get addressValid() {
     return this.address.invalid &&
       (this.address.dirty || this.address.touched) && this.address.errors;
+  }
+
+  get phone() {
+    return this.saveForm.get('phone');
+  }
+
+  get phoneValid() {
+    return this.phone.invalid &&
+      (this.phone.dirty || this.phone.touched) && this.phone.errors;
   }
 
   buy() {
